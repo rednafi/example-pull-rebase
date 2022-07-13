@@ -8,6 +8,7 @@ the remote branch and merge it into the local branch. This can happen when, for 
 * After that, if you try to pull the `main` branch from remote again and the content of
 the `main` branch changes by this time, you'll encounter a merge error.
 
+
 ## Reproduce the issue
 
 * Create a new branch named `alice` from main:
@@ -18,7 +19,7 @@ the `main` branch changes by this time, you'll encounter a merge error.
 * From `alice` branch, add a line to a newly created file `foo.txt`:
 
     ```
-    echo "from alice branch" >> foo.txt
+    echo "from branch alice" >> foo.txt
     ```
 * Add, commit, and push the branch:
 
@@ -26,8 +27,8 @@ the `main` branch changes by this time, you'll encounter a merge error.
     git commit -am "From branch alice" && git push
     ```
 * From the GitHub UI, send a pull request against the `main` branch and merge it:
-    ![image](https://user-images.githubusercontent.com/30027932/178813979-64012aea-5d4a-4ccd-9456-2f3d4d01e992.png)
-
+    ![image](https://user-images.githubusercontent.com/30027932/178816733-4c67a9b0-69a8-4d37-95a5-f21c88dab43a.png)
+    
 * In your local machine, switch to `main` and try to pull the latest content merged from
 the `alice` branch. You'll encounter the following error:
 
@@ -50,5 +51,11 @@ This means that the history of your local `main` branch and the remote `main` br
 
 ## Solution
 
-From the `main` branch, you can run `git pull --rebase` and it'll rebase by adding your
-local commits on top of the remote commits.
+From the `main` branch, you can run:
+
+```
+git pull --rebase
+```
+
+This will rebase your local `main` by adding your local commits on top of the remote
+commits.
