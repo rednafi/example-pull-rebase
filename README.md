@@ -12,21 +12,24 @@ the `main` branch changes by this time, you'll encounter a merge error.
 ## Reproduce the issue
 
 * Create a new branch named `alice` from `main`. Run:
+
     ```bash
     git checkout -b alice
     ```
+    
 * From `alice` branch, add a line to a newly created file `foo.txt`:
     ```bash
     echo "from branch alice" >> foo.txt
     ```
+    
 * Add, commit, and push the branch:
     ```bash
     git commit -am "From branch alice" && git push
     ```
-
+    
 * From the GitHub UI, send a pull request against the `main` branch and merge it:
-    ![image](https://user-images.githubusercontent.com/30027932/178817072-12e6bb10-6ab7-4b30-8b05-74ca0791da55.png)
-
+    ![Screenshot from 2022-07-17 00-09-49](https://user-images.githubusercontent.com/30027932/179367132-de85b59e-aa1c-477e-b3b2-89593f3a8b4c.png)
+    
 * In your local machine, switch to `main` and try to pull the latest content merged from
 the `alice` branch. You'll encounter the following error:
 
