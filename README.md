@@ -1,4 +1,4 @@
-# Example `git pull --rebase` 
+# When to use `git pull --rebase` 
 
 Whenever your local branch diverges from the remote branch, you can't directly pull from
 the remote branch and merge it into the local branch. This can happen when, for example:
